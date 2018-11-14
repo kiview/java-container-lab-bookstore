@@ -1,8 +1,7 @@
 package com.bee42.javalab.bookstore;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -15,11 +14,14 @@ public class BookRepositoryTest {
 
     private BookRepository bookRepository;
 
+    @Rule
+    public PostgreSQLContainer postgres = new PostgreSQLContainer<>();
+
     @Before
     public void setUp() {
-        bookRepository = new BookRepository("jdbc:tc:postgresql:9.6.8://myhost/testdb",
-                "sa",
-                "");
+        bookRepository = new BookRepository(postgres.getJdbcUrl(),
+                postgres.getUsername(),
+                postgres.getPassword());
         bookRepository.init();
     }
 
