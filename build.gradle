@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'com.bee42.javalab'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testRuntime 'com.h2database:h2:1.4.196'
+}
