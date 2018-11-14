@@ -58,8 +58,6 @@ class BookRepository {
 
     long count() {
         try (Statement s = connection.createStatement()) {
-            s.execute("SET @foobar = 4");
-
             ResultSet rs = s.executeQuery("SELECT COUNT (*) FROM books");
             rs.next();
             return rs.getInt(1);

@@ -13,5 +13,9 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-    testRuntime 'com.h2database:h2:1.4.196'
+    testImplementation 'org.testcontainers:testcontainers-bom:1.10.1'
+    testImplementation 'org.testcontainers:postgresql'
+
+    // testRuntime 'com.h2database:h2:1.4.196'
+    testRuntime 'org.postgresql:postgresql:42.2.5'
 }

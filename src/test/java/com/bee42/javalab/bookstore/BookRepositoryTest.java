@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -18,7 +17,7 @@ public class BookRepositoryTest {
 
     @Before
     public void setUp() {
-        bookRepository = new BookRepository("jdbc:h2:mem:test",
+        bookRepository = new BookRepository("jdbc:tc:postgresql:9.6.8://myhost/testdb",
                 "sa",
                 "");
         bookRepository.init();
